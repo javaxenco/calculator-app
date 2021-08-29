@@ -1,0 +1,19 @@
+<section class="wrapper">
+  <app-calc-header></app-calc-header>
+
+  <div class="calculator-wrapper">
+    <div class="calc-input">
+      <input type="number" [(ngModel)]="total" autofocus />
+    </div>
+
+    <div class="buttons-wrapper">
+      <button
+        *ngFor="let button of buttons"
+        (click)="addValue(button)"
+        [ngClass]="button"
+      >
+        {{ button }}
+      </button>
+    </div>
+  </div>
+</section>
