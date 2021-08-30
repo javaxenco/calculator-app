@@ -1,9 +1,10 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CalculatorComponent implements OnInit {
   @ViewChild('inp') input: ElementRef;
@@ -29,6 +30,7 @@ export class CalculatorComponent implements OnInit {
     'RESET',
     '=',
   ];
+ theme: string = ''
 
   constructor() {}
 
@@ -63,5 +65,9 @@ export class CalculatorComponent implements OnInit {
     //marto numberebs amatebs inputshi sxvas arapers jer
 
     this.input.nativeElement.focus();
+  }
+
+  recieveTheme(theme) {
+    this.theme = theme
   }
 }

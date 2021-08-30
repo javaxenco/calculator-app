@@ -1,5 +1,7 @@
-<section class="wrapper">
-  <app-calc-header></app-calc-header>
+<section class="wrapper" [ngClass]="theme">
+  <app-calc-header
+  (style)="recieveTheme($event)"
+  ></app-calc-header>
 
   <div class="calculator-wrapper">
     <div class="calc-input">
