@@ -55,6 +55,8 @@ section {
       box-shadow: styles.$key2-shadow 0px 3px;
       font-weight: bold;
       color: hsl(60, 10%, 19%);
+      cursor: pointer;
+      outline: 0;
 
       &.DEL,
       &.RESET {

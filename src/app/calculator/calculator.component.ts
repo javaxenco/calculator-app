@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-calculator',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calculator.component.scss'],
 })
 export class CalculatorComponent implements OnInit {
+  @ViewChild('inp') input: ElementRef;
+
   total: string = '';
   buttons: Array<string> = [
     '7',
@@ -36,6 +38,20 @@ export class CalculatorComponent implements OnInit {
     if (this.total == null) {
       this.total = '';
     }
+
+    if (val === 'RESET') {
+      this.total = '';
+      this.input.nativeElement.focus();
+      //custom directive focusis sheidzleba ikos gasaketebeli sul ro focusshi ikos input
+      return;
+    }
+
+    if (val === 'DEL') {
+      this.total = this.total.toString().slice(0, -1);
+      this.input.nativeElement.focus();
+      return;
+    }
+
     this.total += val.toString();
 
     //marto numberebs amatebs inputshi sxvas arapers jer
