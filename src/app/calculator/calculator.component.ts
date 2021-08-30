@@ -52,8 +52,16 @@ export class CalculatorComponent implements OnInit {
       return;
     }
 
-    this.total += val.toString();
+    if (val === '+') {
+      this.total += val.toString();
+      console.log(this.total);
 
+      return;
+    }
+
+    this.total += val.toString();
     //marto numberebs amatebs inputshi sxvas arapers jer
+
+    this.input.nativeElement.focus();
   }
 }
