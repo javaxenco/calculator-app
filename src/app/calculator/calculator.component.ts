@@ -44,7 +44,6 @@ export class CalculatorComponent implements OnInit {
     if (val === 'RESET') {
       this.total = '';
       this.input.nativeElement.focus();
-      //custom directive focusis sheidzleba ikos gasaketebeli sul ro focusshi ikos input
       return;
     }
 
@@ -54,20 +53,22 @@ export class CalculatorComponent implements OnInit {
       return;
     }
 
-    if (val === '+') {
+    if (val === '.') {
       this.total += val.toString();
       console.log(this.total);
 
       return;
     }
 
+
     this.total += val.toString();
-    //marto numberebs amatebs inputshi sxvas arapers jer
+
 
     this.input.nativeElement.focus();
   }
 
-  recieveTheme(theme) {
+  receiveTheme(theme) {
     this.theme = theme
+    console.log(this.theme);
   }
 }
