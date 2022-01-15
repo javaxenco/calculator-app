@@ -1,40 +1,32 @@
-import {Component, ElementRef, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
+import { ButtonsArray } from './core/buttons-array';
+import { ThemeService } from './core/theme.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class CalculatorComponent implements OnInit {
   @ViewChild('inp') input: ElementRef;
-
+  buttons = ButtonsArray;
   total: string = '';
-  buttons: Array<string> = [
-    '7',
-    '8',
-    '9',
-    'DEL',
-    '4',
-    '5',
-    '6',
-    '+',
-    '1',
-    '2',
-    '3',
-    '-',
-    '.',
-    '0',
-    '/',
-    'x',
-    'RESET',
-    '=',
-  ];
- theme: string = ''
+  theme: string;
 
-  constructor() {}
+  constructor(private themeService: ThemeService) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.themeService.themeSubject.subscribe((theme) => {
+      this.theme = theme;
+    });
+  }
 
   addValue(val): void {
     if (this.total == null) {
@@ -55,20 +47,11 @@ export class CalculatorComponent implements OnInit {
 
     if (val === '.') {
       this.total += val.toString();
-      console.log(this.total);
-
       return;
     }
 
-
     this.total += val.toString();
 
-
     this.input.nativeElement.focus();
-  }
-
-  receiveTheme(theme) {
-    this.theme = theme
-    console.log(this.theme);
   }
 }

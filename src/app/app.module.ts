@@ -7,9 +7,9 @@ import {
   BrowserAnimationsModule,
   NoopAnimationsModule,
 } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
 import { CalcHeaderComponent } from './calculator/calc-header/calc-header.component';
 import { FormsModule } from '@angular/forms';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [AppComponent, CalculatorComponent, CalcHeaderComponent],
@@ -17,7 +17,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     NoopAnimationsModule,
     BrowserAnimationsModule,
-    MatSliderModule,
+    MatSlideToggleModule,
     FormsModule,
   ],
   providers: [],

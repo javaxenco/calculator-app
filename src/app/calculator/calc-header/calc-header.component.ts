@@ -1,28 +1,26 @@
-import {Component, EventEmitter, Output,} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ThemeService } from '../core/theme.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-calc-header',
   templateUrl: './calc-header.component.html',
   styleUrls: ['./calc-header.component.scss'],
 })
-export class CalcHeaderComponent {
-  @Output() style: EventEmitter<any> = new EventEmitter<any>()
+export class CalcHeaderComponent implements OnInit {
+  theme: string;
+  toggleValue: boolean;
 
+  constructor(private themeService: ThemeService) {}
 
-  theme: string = '';
+  ngOnInit() {
+    this.themeService.themeSubject.subscribe((theme) => {
+      this.theme = theme;
+      this.toggleValue = theme === 'light';
+    });
+  }
 
   sliderChange(val) {
-    switch (val.value) {
-      case 1:
-        this.theme = 'first';
-        break;
-      case 2:
-        this.theme = 'second';
-        break;
-      case 3:
-        this.theme = 'third';
-        break;
-    }
-    this.style.emit(this.theme);
+    this.themeService.update(val.checked);
   }
 }

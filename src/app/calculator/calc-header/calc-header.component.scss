@@ -1,4 +1,4 @@
-@use 'src/styles';
+@use "src/styles";
 
 .calculator-header {
   display: flex;
@@ -22,14 +22,71 @@
 
     .theme-toggle {
       display: flex;
+      align-items: center;
       flex-direction: column;
 
       .labels {
-        margin: 0 0 1rem 1rem;
-        width: 8rem;
+        margin: 0 0 1rem;
+        width: 6rem;
         display: flex;
         justify-content: space-between;
       }
+
+      mat-button-toggle {
+        width: 20rem;
+        height: 4rem;
+      }
+    }
+  }
+}
+
+//light
+
+div.light {
+  color: styles.$bg3;
+}
+
+:host::ng-deep {
+  mat-slide-toggle {
+    .mat-slide-toggle-focus-overlay {
+      display: none;
+    }
+
+    .mat-slide-toggle-bar {
+      width: 7rem;
+      border-radius: 1.5rem;
+      height: 3rem;
+    }
+
+    &.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+      background-color: styles.$light-toggle-bg;
+    }
+
+    &.mat-slide-toggle .mat-slide-toggle-bar {
+      background-color: #78788029;
+    }
+
+    &.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+      background-color: styles.$key-orange;
+    }
+
+    &.mat-slide-toggle .mat-slide-toggle-ripple {
+      display: none;
+    }
+
+    .mat-slide-toggle-thumb-container {
+      inset: 0.15rem 0 0 0.15rem;
+
+      .mat-slide-toggle-thumb {
+        width: 2.7rem;
+        height: 2.7rem;
+        box-shadow: 0px 0px 1px -1px rgb(0 0 0 / 10%),
+          0px 0.5px 0px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+      }
+    }
+
+    &.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb-container {
+      transform: translate3d(4rem, 0, 0);
     }
   }
 }

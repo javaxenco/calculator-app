@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap");
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
 
 //colors
 $bg1: hsl(222, 26%, 31%);
@@ -12,6 +13,13 @@ $key2-shadow: hsl(35, 11%, 61%);
 $key-orange: hsl(25, 98%, 40%);
 $orange-shadow: hsl(25, 99%, 27%);
 $text: hsl(60, 10%, 19%);
+
+//light
+$light-bg: hsl(0, 0%, 90%);
+$light-toggle-bg: hsl(0, 5%, 81%);
+$light-screen-bg: hsl(0, 0%, 93%);
+$light-key-bg: hsl(185, 42%, 37%);
+$light-key-shadow: hsl(185, 58%, 25%);
 
 * {
   margin: 0;
@@ -26,88 +34,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  &.light {
+    background: $light-bg;
+  }
 }
 
 html,
 body {
   height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-.mat-slider-horizontal {
-  min-width: 10rem;
-}
-
-.mat-slider.mat-slider-horizontal .mat-slider-wrapper {
-  top: 0;
-}
-.mat-slider.mat-slider-horizontal .mat-slider-track-wrapper {
-  height: 2.4rem;
-  border-radius: 1rem;
-}
-
-.mat-slider.mat-slider-horizontal
-  .mat-slider-track-wrapper
-  .mat-slider-track-background {
-  transform: translateX(0px) !important;
-}
-
-.mat-slider.mat-slider-horizontal .mat-slider-track-background,
-.mat-slider.mat-slider-horizontal .mat-slider-track-fill {
-  height: 100%;
-}
-
-.mat-slider-horizontal .mat-slider-wrapper::after,
-.mat-slider-horizontal .mat-slider-wrapper::before {
-  display: none;
-}
-
-.mat-slider-horizontal .mat-slider-wrapper .mat-slider-ticks-container {
-  display: none;
-}
-
-.mat-slider-thumb {
-  transform: scale(1) !important;
-}
-
-.mat-slider:not(.mat-slider-disabled).cdk-mouse-focused .mat-slider-thumb,
-.mat-slider:not(.mat-slider-disabled).cdk-touch-focused .mat-slider-thumb,
-.mat-slider:not(.mat-slider-disabled).cdk-program-focused .mat-slider-thumb {
-  border: 0px;
-}
-
-.mat-slider:not(.mat-slider-disabled).cdk-mouse-focused
-  .mat-slider-track-background,
-.mat-slider:not(.mat-slider-disabled).cdk-touch-focused
-  .mat-slider-track-background,
-.mat-slider:not(.mat-slider-disabled).cdk-program-focused
-  .mat-slider-track-background {
-  transform: translateX(0px) !important;
-}
-
-.mat-slider:not(.mat-slider-disabled).cdk-mouse-focused .mat-slider-track-fill,
-.mat-slider:not(.mat-slider-disabled).cdk-touch-focused .mat-slider-track-fill,
-.mat-slider:not(.mat-slider-disabled).cdk-program-focused
-  .mat-slider-track-fill {
-  transform: translateX(0px) !important;
-}
-
-.mat-slider.mat-slider-horizontal .mat-slider-track-fill {
-  background-color: rgba(0, 0, 0, 0.26);
-}
-
-.mat-accent .mat-slider-thumb {
-  height: 3rem;
-  width: 3rem;
-  background-color: $key-orange;
-  border: solid 0px gray;
-  bottom: -2.6rem;
-  right: -1.5rem;
-}
-
-.mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
-  background-color: $key-orange;
 }
